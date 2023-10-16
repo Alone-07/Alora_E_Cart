@@ -36,6 +36,12 @@
 .flex {
   display: flex !important;
 }
+.container {
+  width: var(--min-width);
+}
+.active {
+  background-color: #fff !important;
+}
 body {
   min-height: 100vh;
   margin: 0;
@@ -93,7 +99,7 @@ header {
   background-color: var(--bg-color);
   padding: 0.5rem 0.5rem 1rem 0.5rem;
 }
-.container {
+.navbar {
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
@@ -101,7 +107,6 @@ header {
   background-color: var(--bg-color);
   border-bottom: 2px solid var(--p-color);
   color: var(--h-color);
-  width: var(--min-width);
 }
 
 .container .logo {
@@ -228,9 +233,89 @@ nav > ul {
 .desktop_nav .list:hover .product_list {
   display: flex;
 }
+.slide_show_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.slide_show {
+  height: 450px;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+}
+.dot_container {
+  position: absolute;
+  top: 90%;
+  right: 2%;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ffff;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.dot:hover {
+  background-color: #5f5f5f;
+}
+.dot + .dot {
+  margin-left: 5px;
+}
+.slide {
+  display: none;
+  flex-flow: row;
+  height: 450px;
+  transition: 0.5s ease;
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slide .text {
+  width: 70%;
+  height: 100%;
+  padding: var(--p-1);
+  display: flex;
+  flex-flow: column;
+}
+.slide .text .shopNow {
+  padding: var(--p-1);
+  margin-top: auto;
+}
+.slide .image {
+  width: 100%;
+  height: 100%;
+  transition: 1s ease;
+  overflow: hidden;
+}
+.slide .image img {
+  object-fit: cover;
+  height: 100%;
+}
 @media (max-width: 920px) {
+  /* changing display in mobile and desktop version */
   :root {
     --mobile-dis: block;
     --desktop-dis: none;
+  }
+  /* to make logo center, just pushing bar to right */
+  .bar {
+    margin-right: auto;
   }
 }
