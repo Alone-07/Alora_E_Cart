@@ -309,10 +309,39 @@ nav > ul {
   width: 100%;
   transition: 1s ease;
   overflow: hidden;
+  padding: 0rem;
+  margin: 0rem;
 }
 .slide .image img {
   object-fit: cover;
   height: 100%;
+}
+
+.image_grid_container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.image_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  place-items: center;
+  gap: 1rem;
+}
+.image_grid {
+  & .image {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+  }
+}
+.image_card {
+  & .details {
+    width: 100%;
+    padding: var(--p-1);
+  }
 }
 @media (max-width: 920px) {
   /* changing display in mobile and desktop version */
